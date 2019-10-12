@@ -1,24 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import moment from "moment";
+
+import { requester } from "./utilities/apiUtils";
 
 function App() {
+  const [scans, updateScans] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const url = 'http://localhost:3000/import';
+      const result = await requester({ url, method: "GET"});
+      updateScans(result.scans);
+    };
+    fetchData();
+  }, []);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {scans.map(scan => {
+        return <div key={scan.id}>
+          <div style={{ border: "1px solid red", padding: "10px", margin: 10}}>
+            Scan from {moment(scan.start_time * 1000).format("MMM D, YYYY") }
+          </div>
+        </div>
+      })}
     </div>
   );
 }
