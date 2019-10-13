@@ -1,0 +1,22 @@
+$darkgreen: #17571c;
+$lightgreen: #45a44d;
+$brown: rgb(108, 63, 50);
+$offwhite: #fafafa;
+$text: #3a3a3a;
+$lightgray: #ededed;
+$darkgray: #a2a2a2;
+$primary: $lightgreen;
+$secondary: $darkgreen;
+$negative: #db2828;
+
+:export {
+  darkgreen: $darkgreen;
+  lightgreen: $lightgreen;
+  brown: $brown;
+  offwhite: $offwhite;
+  text: $text;
+  lightgray: $lightgray;
+  darkgray: $darkgray;
+  primary: $primary;
+  secondary: $secondary;
+}

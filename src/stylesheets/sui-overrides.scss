@@ -1,0 +1,92 @@
+@mixin primaryButton {
+    background: $lightgreen;
+    color: white;
+    &:focus,
+    &:hover {
+        background: $darkgreen;
+    }
+    &.inverted {
+        background: white;
+        box-shadow: 0 0 0 2px inset $lightgreen !important;
+        color: $lightgreen !important;
+        &:hover,
+        &:focus {
+            box-shadow: 0 0 0 2px inset $darkgreen !important;
+            background: $darkgreen;
+            color: white !important;
+        }
+    }
+}
+
+// Buttons
+.ui.button {
+    &.primary {
+        @include primaryButton;
+    }
+}
+
+.ui.form .field > label.button {
+    font-size: 16px;
+    padding: 12px 20px;
+    @include primaryButton;
+}
+
+.ui.header {
+    color: $darkgreen;
+}
+
+.ui.pagination.menu .item {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    &.active {
+        padding-top: 12px;
+    }
+}
+// Progress bar
+.ui.progress .bar {
+    min-width: 6px;
+}
+
+// Make clickable rows appear clickable
+.row-clickable {
+    cursor: pointer;
+}
+.ui.button.unstyled {
+    background: none;
+    padding: 0;
+    margin: 0;
+    color: inherit;
+    box-shadow: none;
+    font-weight: normal;
+    &.link {
+        color: $lightgreen;
+    }
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+// Styles for draggable
+.draggable-icon-container {
+    padding: 2px 0 4px 4px;
+    border-right: 1px solid gray;
+    margin-right: 12px;
+    i {
+        color: gray;
+    } 
+}
+
+.slasher {
+    position: relative;
+    color: $darkgray;
+    &::before {
+        content: "";
+        background: $darkgray;
+        height: 2px;
+        width: 110%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-15deg)
+    }
+}
