@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-/* eslint-disable */
-import { callMeDanger } from "utilities";
-/* eslint-enable */
+import { callMeDanger } from '../utilities';
 
 const Titler = ({ title, value, linebreak, bold }) => {
   if (!value) return null;
@@ -16,10 +14,10 @@ const Titler = ({ title, value, linebreak, bold }) => {
   );
 };
 
-const { string, bool } = PropTypes;
+const { string, bool, number, oneOfType } = PropTypes;
 Titler.propTypes = {
   title: string,
-  value: string,
+  value: oneOfType([string, number]),
   linebreak: bool,
   bold: bool
 };

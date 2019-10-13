@@ -8,9 +8,13 @@ const Main = () => {
   return (
     <Segment>
       <Switch>
-        <Route path="/scans">
+        <Route path="/scans" exact>
           <Header content="Recent Scans" as="h2" />
           <RecentScans />
+        </Route>
+        <Route path="/scans/:id" exact>
+          <Header content="Recent Scans" as="h2" />
+          <div>This will be an individual scan</div>
         </Route>
         <Route path="*">
           <Header content="Not Found" />
