@@ -1,4 +1,4 @@
-import fetcher from "./fetcher";
-import requester from "./requester";
+import fetcher from './fetcher';
+import requester from './requester';
 
 export { fetcher, requester };

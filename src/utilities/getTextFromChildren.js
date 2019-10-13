@@ -1,15 +1,15 @@
-import React from "react";
+import React from 'react';
 
 const getTextFromChildren = children => {
-    let label = "";
+  let label = '';
 
-    React.Children.map(children, child => {
-        if (typeof child === "string") {
-            label += child;
-        }
-    });
+  React.Children.map(children, child => {
+    if (typeof child === 'string') {
+      label += child;
+    }
+  });
 
-    return label;
+  return label;
 };
 
 export default getTextFromChildren;

@@ -1,3 +1,3 @@
-const underscorer = string => string.toLowerCase().replace(/\s/g, "_");
+const underscorer = string => string.toLowerCase().replace(/\s/g, '_');
 
 export default underscorer;
