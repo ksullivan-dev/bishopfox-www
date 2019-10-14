@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import moment from 'moment';
 import { useParams } from 'react-router-dom';
-import { Header } from 'semantic-ui-react';
+import { Header, Button } from 'semantic-ui-react';
 import Titler from '../shared/titler';
-import { requester } from '../utilities/apiUtils';
 import Loader from '../shared/loading';
+import { requester } from '../utilities/apiUtils';
+import { useAfterSubmit as afterSubmit } from '../utilities/hooks';
 
 const Scan = () => {
   const { id } = useParams();
@@ -21,6 +22,11 @@ const Scan = () => {
     };
     fetchData();
   }, [id]);
+  const deleteScan = async () => {
+    const url = `http://localhost:3000/import/${id}`;
+    const response = await requester({ url, method: 'DELETE' });
+    afterSubmit(response);
+  };
   return (
     <>
       <Loader
@@ -55,6 +61,8 @@ const Scan = () => {
               linebreak
             />
             <div>This will be an individual scan</div>
+            <br />
+            <Button content="Delete Scan" onClick={deleteScan} negative />
           </>
         )}
       </Loader>
