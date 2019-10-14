@@ -60,6 +60,30 @@ code {
   }
 }
 
+.header-section {
+  color: $offwhite;
+  padding: 20px 0;
+  position: relative;
+  .ui.header {
+    color: $offwhite;
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 100vw;
+    height: 500px;
+    transform: translate(-50%, 0);
+    background: $darkbkg;
+    z-index: -1;
+  }
+}
+
+.ui.header.light-header {
+  color: $offwhite;
+}
+
 @import '~semantic-ui-css/semantic.min.css';
 @import 'flexbox';
 @import 'globals';

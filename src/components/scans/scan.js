@@ -28,35 +28,37 @@ const Scan = () => {
   }, [id]);
   return (
     <>
-      <Header as="h2" content="Scan Results" />
+      <Header as="h2" content="Scan Results" className="light-header" />
       <Loader
         loading={loading}
         loadingProps={{ size: 'huge', content: 'Populating Results...' }}
       >
         {scan && (
           <>
-            <Header
-              content={moment(scan.start_time * 1000).format('MMM D, YYYY')}
-              as="h3"
-            />
-            <Titler
-              title="Hosts Scanned"
-              value={(scan.hosts_up + scan.hosts_down).toString()}
-              bold
-              linebreak
-            />
-            <Titler
-              title="Hosts Up"
-              value={scan.hosts_up.toString()}
-              bold
-              linebreak
-            />
-            <Titler
-              title="Hosts Down"
-              value={scan.hosts_down.toString()}
-              bold
-              linebreak
-            />
+            <div className="header-section">
+              <Header
+                content={moment(scan.start_time * 1000).format('MMM D, YYYY')}
+                as="h3"
+              />
+              <Titler
+                title="Hosts Scanned"
+                value={(scan.hosts_up + scan.hosts_down).toString()}
+                bold
+                linebreak
+              />
+              <Titler
+                title="Hosts Up"
+                value={scan.hosts_up.toString()}
+                bold
+                linebreak
+              />
+              <Titler
+                title="Hosts Down"
+                value={scan.hosts_down.toString()}
+                bold
+                linebreak
+              />
+            </div>
             <Hosts hosts={scan.hosts} />
             <DeleteScan scan={scan} />
           </>

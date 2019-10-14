@@ -1,13 +1,16 @@
 $darkgreen: #17571c;
 $lightgreen: #45a44d;
+$bishopfox: #59327e;
 $brown: rgb(108, 63, 50);
 $offwhite: #fafafa;
-$text: #3a3a3a;
-$lightgray: #ededed;
+$text: #242424;
+$lightgray: #f3eff7;
 $darkgray: #a2a2a2;
-$primary: $lightgreen;
-$secondary: $darkgreen;
+$primary: $bishopfox;
+$darkprimary: darken($primary, 10%);
+$secondary: $darkprimary;
 $negative: #db2828;
+$darkbkg: $text;
 
 :export {
   darkgreen: $darkgreen;
@@ -18,5 +21,7 @@ $negative: #db2828;
   lightgray: $lightgray;
   darkgray: $darkgray;
   primary: $primary;
+  darkprimary: $darkprimary;
   secondary: $secondary;
+  darkbkg: $darkbkg;
 }

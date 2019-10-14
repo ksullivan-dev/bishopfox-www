@@ -1,18 +1,18 @@
 @mixin primaryButton {
-  background: $lightgreen;
+  background: $primary;
   color: white;
   &:focus,
   &:hover {
-    background: $darkgreen;
+    background: $darkprimary;
   }
   &.inverted {
     background: white;
-    box-shadow: 0 0 0 2px inset $lightgreen !important;
+    box-shadow: 0 0 0 2px inset $primary !important;
     color: $lightgreen !important;
     &:hover,
     &:focus {
-      box-shadow: 0 0 0 2px inset $darkgreen !important;
-      background: $darkgreen;
+      box-shadow: 0 0 0 2px inset $darkprimary !important;
+      background: $darkprimary;
       color: white !important;
     }
   }
@@ -32,7 +32,7 @@
 }
 
 .ui.header {
-  color: $darkgreen;
+  color: $darkprimary;
 }
 
 .ui.pagination.menu .item {
@@ -59,7 +59,7 @@
   box-shadow: none;
   font-weight: normal;
   &.link {
-    color: $lightgreen;
+    color: $primary;
   }
   &:hover {
     text-decoration: underline;
