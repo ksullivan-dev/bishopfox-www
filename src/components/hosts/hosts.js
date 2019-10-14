@@ -25,41 +25,39 @@ const Hosts = ({ hosts = [] }) => {
     <>
       <Header content="Hosts" as="h3" />
       <Accordion>
-        <Card.Group centered>
-          {hosts.map((host, idx) => {
-            const { hostnames } = host;
-            const parsedHostname = JSON.parse(hostnames);
-            let hostnameDisplay = host.ip4_addr;
-            if (Array.isArray(parsedHostname) && !!parsedHostname[0]) {
-              // eslint-disable-next-line prefer-destructuring
-              hostnameDisplay = parsedHostname[0];
-            }
-            const active = hostIds.includes(host.id);
-            return (
-              <Card key={host.id} onClick={onClick} data-hostid={host.id} fluid>
-                <Card.Content>
-                  <Card.Header>
-                    <Accordion.Title active={active} index={idx}>
-                      <Truncate>
-                        <Icon name="dropdown" />
-                        {hostnameDisplay}
-                      </Truncate>
-                    </Accordion.Title>
-                  </Card.Header>
-                  <Card.Meta>
-                    <Titler
-                      title="Status"
-                      value={capitalize(host.status)}
-                      bold
-                      linebreak
-                    />
-                    {active && <HostDetails host={host} />}
-                  </Card.Meta>
-                </Card.Content>
-              </Card>
-            );
-          })}
-        </Card.Group>
+        {hosts.map((host, idx) => {
+          const { hostnames } = host;
+          const parsedHostname = JSON.parse(hostnames);
+          let hostnameDisplay = host.ip4_addr;
+          if (Array.isArray(parsedHostname) && !!parsedHostname[0]) {
+            // eslint-disable-next-line prefer-destructuring
+            hostnameDisplay = parsedHostname[0];
+          }
+          const active = hostIds.includes(host.id);
+          return (
+            <Card key={host.id} onClick={onClick} data-hostid={host.id} fluid>
+              <Card.Content>
+                <Card.Header>
+                  <Accordion.Title active={active} index={idx}>
+                    <Truncate>
+                      <Icon name="dropdown" />
+                      {hostnameDisplay}
+                    </Truncate>
+                  </Accordion.Title>
+                </Card.Header>
+                <Card.Meta>
+                  <Titler
+                    title="Status"
+                    value={capitalize(host.status)}
+                    bold
+                    linebreak
+                  />
+                  {active && <HostDetails host={host} />}
+                </Card.Meta>
+              </Card.Content>
+            </Card>
+          );
+        })}
       </Accordion>
     </>
   );
