@@ -33,7 +33,7 @@ const RecentScans = () => {
       loading={loading}
       loadingProps={{ size: 'huge', content: 'Fetching Scans...' }}
     >
-      <Flex spacing="10">
+      <Flex spacing="10" wrap>
         {scans.map(scan => (
           <div key={scan.id} flex="auto">
             <Card onClick={onClick} data-scanid={scan.id}>
