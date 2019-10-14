@@ -2,18 +2,14 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { Header, Segment } from 'semantic-ui-react';
 
-import RecentScans from './recentScans';
-import ImportScan from './importScan';
+import Scans from './scans';
 
 const Main = () => {
   return (
     <Segment>
       <Switch>
         <Route path="/scans" exact>
-          <Header content="Recent Scans" as="h2" />
-          <RecentScans />
-          <br />
-          <ImportScan />
+          <Scans />
         </Route>
         <Route path="/scans/:id" exact>
           <Header content="Recent Scans" as="h2" />
