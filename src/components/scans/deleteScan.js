@@ -19,6 +19,7 @@ const DeleteScan = ({ scan }) => {
   const closeConfirm = () => setOpen(false);
   return (
     <>
+      <br />
       <Button content="Delete Scan" onClick={showConfirm} negative />
       <Confirm
         data-testid="test_show-confirm"

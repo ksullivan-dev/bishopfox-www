@@ -9,6 +9,7 @@ import Loader from '../../shared/loading';
 import { requester } from '../../utilities/apiUtils';
 
 import DeleteScan from './deleteScan';
+import Hosts from '../hosts/hosts';
 
 const Scan = () => {
   const { id } = useParams();
@@ -27,6 +28,7 @@ const Scan = () => {
   }, [id]);
   return (
     <>
+      <Header as="h2" content="Scan Results" />
       <Loader
         loading={loading}
         loadingProps={{ size: 'huge', content: 'Populating Results...' }}
@@ -34,10 +36,8 @@ const Scan = () => {
         {scan && (
           <>
             <Header
-              content={`Scan from ${moment(scan.start_time * 1000).format(
-                'MMM D, YYYY'
-              )}`}
-              as="h2"
+              content={moment(scan.start_time * 1000).format('MMM D, YYYY')}
+              as="h3"
             />
             <Titler
               title="Hosts Scanned"
@@ -57,8 +57,7 @@ const Scan = () => {
               bold
               linebreak
             />
-            <div>This will be an individual scan</div>
-            <br />
+            <Hosts hosts={scan.hosts} />
             <DeleteScan scan={scan} />
           </>
         )}
