@@ -25,20 +25,17 @@ const RecentScans = ({ scans = [] }) => {
               <Card.Meta>
                 <Titler
                   title="Hosts Scanned"
-                  // TODO Fix host_up and hosts_down
-                  value={scan.host_up + scan.hosts_down}
+                  value={scan.hosts_up + scan.hosts_down}
                   linebreak
                   bold
                 />
                 <Titler
                   title="Hosts Up"
-                  // TODO Fix host_up and hosts_down
-                  value={scan.host_up.toString()}
+                  value={scan.hosts_up.toString()}
                   linebreak
                 />
                 <Titler
                   title="Hosts Down"
-                  // TODO Fix host_up and hosts_down
                   value={scan.hosts_down.toString()}
                   linebreak
                 />
