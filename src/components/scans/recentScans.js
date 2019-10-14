@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 import { useHistory } from 'react-router-dom';
 import { Card } from 'semantic-ui-react';
-import Flex from '../../shared/flex';
 import Titler from '../../shared/titler';
 
 const RecentScans = ({ scans = [] }) => {
@@ -14,37 +13,35 @@ const RecentScans = ({ scans = [] }) => {
   };
 
   return (
-    <Flex spacing="10" wrap>
+    <Card.Group>
       {scans.map(scan => (
-        <div key={scan.id} flex="auto">
-          <Card onClick={onClick} data-scanid={scan.id}>
-            <Card.Content>
-              <Card.Header
-                content={moment(scan.start_time * 1000).format('MMM D, YYYY')}
+        <Card onClick={onClick} data-scanid={scan.id} key={scan.id}>
+          <Card.Content>
+            <Card.Header
+              content={moment(scan.start_time * 1000).format('MMM D, YYYY')}
+            />
+            <Card.Meta>
+              <Titler
+                title="Hosts Scanned"
+                value={scan.hosts_up + scan.hosts_down}
+                linebreak
+                bold
               />
-              <Card.Meta>
-                <Titler
-                  title="Hosts Scanned"
-                  value={scan.hosts_up + scan.hosts_down}
-                  linebreak
-                  bold
-                />
-                <Titler
-                  title="Hosts Up"
-                  value={scan.hosts_up.toString()}
-                  linebreak
-                />
-                <Titler
-                  title="Hosts Down"
-                  value={scan.hosts_down.toString()}
-                  linebreak
-                />
-              </Card.Meta>
-            </Card.Content>
-          </Card>
-        </div>
+              <Titler
+                title="Hosts Up"
+                value={scan.hosts_up.toString()}
+                linebreak
+              />
+              <Titler
+                title="Hosts Down"
+                value={scan.hosts_down.toString()}
+                linebreak
+              />
+            </Card.Meta>
+          </Card.Content>
+        </Card>
       ))}
-    </Flex>
+    </Card.Group>
   );
 };
 
