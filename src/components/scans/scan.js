@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import moment from 'moment';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { Header } from 'semantic-ui-react';
 
 import Titler from '../../shared/titler';
@@ -59,8 +59,17 @@ const Scan = () => {
                 linebreak
               />
             </div>
+            <br />
+            <Link to="/scans" className="basic-link">
+              Back to all scans
+            </Link>
             <Hosts hosts={scan.hosts} />
             <DeleteScan scan={scan} />
+            <br />
+            <br />
+            <Link to="/scans" className="basic-link">
+              Back to all scans
+            </Link>
           </>
         )}
       </Loader>
