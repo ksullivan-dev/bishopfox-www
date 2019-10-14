@@ -98,3 +98,11 @@
     min-height: 200px;
   }
 }
+
+// Don't make cards jump on hover
+.ui.cards a.card:hover,
+.ui.link.card:hover,
+.ui.link.cards .card:hover,
+a.ui.card:hover {
+  transform: none;
+}

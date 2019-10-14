@@ -45,6 +45,21 @@ code {
   width: 100%;
 }
 
+.port {
+  background: $lightgray;
+  padding: 10px;
+  border-radius: 3px;
+  border: 1px solid darken($lightgray, 10%);
+  &--open {
+    background: rgba($lightgreen, 0.15);
+    border-color: $lightgreen;
+  }
+  &--closed {
+    background: rgba($negative, 0.15);
+    border-color: $negative;
+  }
+}
+
 @import '~semantic-ui-css/semantic.min.css';
 @import 'flexbox';
 @import 'globals';

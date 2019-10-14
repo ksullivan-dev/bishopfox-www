@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Header, Card, Accordion, Icon } from 'semantic-ui-react';
+import { Header, Card, Accordion, Icon, Divider } from 'semantic-ui-react';
 
 import { capitalize } from '../../utilities';
 
 import Truncate from '../../shared/textFormatters/truncate';
 import Titler from '../../shared/titler';
+import Flex from '../../shared/flex';
 
 import HostDetails from './hostDetails';
+import Port from './port';
 
 const Hosts = ({ hosts = [] }) => {
   const [hostIds, updateHosts] = useState([]);
@@ -25,7 +27,7 @@ const Hosts = ({ hosts = [] }) => {
     <>
       <Header content="Hosts" as="h3" />
       <Accordion>
-        {hosts.map((host, idx) => {
+        {hosts.map(host => {
           const { hostnames } = host;
           const parsedHostname = JSON.parse(hostnames);
           let hostnameDisplay = host.ip4_addr;
@@ -35,10 +37,14 @@ const Hosts = ({ hosts = [] }) => {
           }
           const active = hostIds.includes(host.id);
           return (
-            <Card key={host.id} onClick={onClick} data-hostid={host.id} fluid>
+            <Card key={host.id} fluid>
               <Card.Content>
                 <Card.Header>
-                  <Accordion.Title active={active} index={idx}>
+                  <Accordion.Title
+                    active={active}
+                    onClick={onClick}
+                    data-hostid={host.id}
+                  >
                     <Truncate>
                       <Icon name="dropdown" />
                       {hostnameDisplay}
@@ -54,6 +60,20 @@ const Hosts = ({ hosts = [] }) => {
                   />
                   {active && <HostDetails host={host} />}
                 </Card.Meta>
+                {active && (
+                  <Card.Description>
+                    <Divider />
+                    <Header as="h4" content="Ports" />
+                    <Flex spacing="10" wrap>
+                      {host.ports.map(port => (
+                        <div flex="25" key={port.id} style={{ minWidth: 220 }}>
+                          <Port port={port} key={port.id} />
+                          <br />
+                        </div>
+                      ))}
+                    </Flex>
+                  </Card.Description>
+                )}
               </Card.Content>
             </Card>
           );
