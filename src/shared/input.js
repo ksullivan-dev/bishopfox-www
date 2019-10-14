@@ -2,10 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Form, Label, Input as SUInput } from 'semantic-ui-react';
 
-/* eslint-disable */
-import MarkdownEditor from "shared/markdownEditor";
-import { underscorer, getTextFromChildren as getText } from "utilities";
-/* eslint-enable */
+import { underscorer, getTextFromChildren as getText } from '../utilities';
 
 const Input = props => {
   const {
@@ -22,6 +19,7 @@ const Input = props => {
     dataArray,
     id,
     allowLP,
+    accept,
     ...rest
   } = props;
   const customInput = allowLP ? undefined : <input data-lpignore="true" />;
@@ -53,18 +51,6 @@ const Input = props => {
           name={name}
           onChange={onChange}
         />
-      )}
-
-      {inputType === 'markdown' && (
-        <Form.Field>
-          <label htmlFor={name}>{label}</label>
-          <MarkdownEditor
-            placeholder={placeholder}
-            name={name}
-            onChange={onChange}
-            {...rest}
-          />
-        </Form.Field>
       )}
 
       {inputType === 'select' && (
@@ -112,12 +98,15 @@ const Input = props => {
             className="input-file"
             id={id}
             label=""
+            name={name}
+            input={<input accept={accept} />}
           />
           <Label
             htmlFor={id}
-            className="ui button"
+            className="ui primary button"
             as="label"
             content={label}
+            icon="plus"
           />
         </>
       )}
@@ -139,7 +128,8 @@ Input.propTypes = {
   inputType: string,
   dataArray: array,
   allowLP: bool,
-  id: string
+  id: string,
+  accept: string
 };
 
 export default Input;
