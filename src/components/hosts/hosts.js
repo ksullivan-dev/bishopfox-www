@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Header, Card, Accordion, Icon, Divider } from 'semantic-ui-react';
+import {
+  Header,
+  Card,
+  Accordion,
+  Icon,
+  Divider,
+  Button
+} from 'semantic-ui-react';
 
 import { capitalize } from '../../utilities';
 
@@ -12,6 +19,7 @@ import HostDetails from './hostDetails';
 import Port from './port';
 
 const Hosts = ({ hosts = [] }) => {
+  const all = hosts.map(host => host.id);
   const [hostIds, updateHosts] = useState([]);
   const onClick = (e, obj) => {
     updateHosts(prev => {
@@ -23,9 +31,18 @@ const Hosts = ({ hosts = [] }) => {
     });
   };
 
+  const showAll = () => updateHosts(all);
+  const collapseAll = () => updateHosts([]);
+
   return (
     <>
       <Header content="Hosts" as="h3" />
+      <Button.Group size="small" compact>
+        <Button content="Expand All" onClick={showAll} />
+        <Button content="Collapse All" onClick={collapseAll} />
+      </Button.Group>
+      <br />
+      <br />
       <Accordion>
         {hosts.map(host => {
           const { hostnames } = host;
