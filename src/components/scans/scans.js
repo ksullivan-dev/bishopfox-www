@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Header } from 'semantic-ui-react';
 
-import { requester } from '../utilities/apiUtils';
-import Loader from '../shared/loading';
+import { requester } from '../../utilities/apiUtils';
+import Loader from '../../shared/loading';
 
 import RecentScans from './recentScans';
 import ImportScan from './importScan';

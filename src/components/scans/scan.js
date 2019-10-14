@@ -3,10 +3,10 @@ import moment from 'moment';
 import { useParams } from 'react-router-dom';
 import { Header } from 'semantic-ui-react';
 
-import Titler from '../shared/titler';
-import Loader from '../shared/loading';
+import Titler from '../../shared/titler';
+import Loader from '../../shared/loading';
 
-import { requester } from '../utilities/apiUtils';
+import { requester } from '../../utilities/apiUtils';
 
 import DeleteScan from './deleteScan';
 
