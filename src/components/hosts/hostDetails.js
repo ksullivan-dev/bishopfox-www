@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Header } from 'semantic-ui-react';
 import moment from 'moment';
 
 import Titler from '../../shared/titler';
@@ -27,7 +26,6 @@ const details = [
 const HostDetails = ({ host = {} }) => {
   return (
     <>
-      <Header content="Details" as="h4" />
       {details.map(({ title, name, formatter }) => {
         let value = host[name];
         if (formatter) value = formatter(value);
