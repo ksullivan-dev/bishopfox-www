@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import { Header, Segment } from 'semantic-ui-react';
 
 import Scans from './scans';
+import Scan from './scan';
 
 const Main = () => {
   return (
@@ -12,8 +13,7 @@ const Main = () => {
           <Scans />
         </Route>
         <Route path="/scans/:id" exact>
-          <Header content="Recent Scans" as="h2" />
-          <div>This will be an individual scan</div>
+          <Scan />
         </Route>
         <Route path="*">
           <Header content="Not Found" />
