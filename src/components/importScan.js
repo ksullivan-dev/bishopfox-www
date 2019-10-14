@@ -5,17 +5,16 @@ import { useAfterSubmit as afterSubmit } from '../utilities/hooks';
 import { requester } from '../utilities/apiUtils';
 import Input from '../shared/input';
 
-const ImportScan = ({ updateScans, updateLoading }) => {
-  const callback = response => {
-    updateLoading(false);
-    updateScans(response.scans);
+const ImportScan = ({ updateLoading }) => {
+  const callback = () => {
+    updateLoading({ status: false });
   };
   const errback = response => {
-    updateLoading(false);
+    updateLoading({ status: false });
     console.log(response);
   };
   const handleSubmit = async formData => {
-    updateLoading(true);
+    updateLoading({ status: true, text: 'Processing Scan...' });
     const form_data = jsonToFormData(formData);
     const url = 'http://localhost:3000/import';
     const response = await requester({
@@ -48,8 +47,7 @@ const ImportScan = ({ updateScans, updateLoading }) => {
 
 const { func } = PropTypes;
 ImportScan.propTypes = {
-  updateLoading: func,
-  updateScans: func
+  updateLoading: func
 };
 
 export default ImportScan;
