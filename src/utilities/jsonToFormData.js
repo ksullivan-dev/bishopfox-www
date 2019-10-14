@@ -14,16 +14,13 @@ const buildFormData = (formData, data, parentKey) => {
     });
   } else {
     const value = data == null ? '' : data;
-
     formData.append(parentKey, value);
   }
 };
 
 const jsonToFormData = data => {
   const formData = new FormData();
-
   buildFormData(formData, data);
-
   return formData;
 };
 
