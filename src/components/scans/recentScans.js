@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 import { useHistory } from 'react-router-dom';
 import { Card } from 'semantic-ui-react';
-import Titler from '../../shared/titler';
+
+import Titler from 'shared/titler';
 
 const RecentScans = ({ scans = [] }) => {
   const history = useHistory();

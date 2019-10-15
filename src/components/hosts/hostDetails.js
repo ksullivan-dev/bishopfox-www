@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 
-import Titler from '../../shared/titler';
+import Titler from 'shared/titler';
 
 const formattedDate = value => {
   return moment(value * 1000).format('HH:mm:ss');

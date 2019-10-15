@@ -2,8 +2,8 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { Header } from 'semantic-ui-react';
 
-import Scans from './scans/scans';
-import Scan from './scans/scan';
+import Scans from 'components/scans/scans';
+import Scan from 'components/scans/scan';
 
 const Main = () => {
   return (

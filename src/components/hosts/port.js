@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Titler from '../../shared/titler';
+import Titler from 'shared/titler';
 
 const details = [
   { title: 'Port Number', name: 'num' },

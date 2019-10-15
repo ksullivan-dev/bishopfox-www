@@ -9,14 +9,14 @@ import {
   Button
 } from 'semantic-ui-react';
 
-import { capitalize } from '../../utilities';
+import { capitalize } from 'utilities';
 
-import Truncate from '../../shared/textFormatters/truncate';
-import Titler from '../../shared/titler';
-import Flex from '../../shared/flex';
+import Truncate from 'shared/textFormatters/truncate';
+import Titler from 'shared/titler';
+import Flex from 'shared/flex';
 
-import HostDetails from './hostDetails';
-import Port from './port';
+import HostDetails from 'components/hosts/hostDetails';
+import Port from 'components/hosts/port';
 
 const Hosts = ({ hosts = [] }) => {
   const all = hosts.map(host => host.id);
