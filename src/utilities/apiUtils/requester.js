@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-import readCookie from '../readCookie';
+import { readCookie } from 'utilities';
 
 const requester = async ({
   url,
