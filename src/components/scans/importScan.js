@@ -7,13 +7,8 @@ import { requester, afterSubmit } from 'utilities/apiUtils';
 import Input from 'shared/input';
 
 const ImportScan = ({ updateLoading }) => {
-  const callback = () => {
-    updateLoading({ status: false });
-  };
-  const errback = response => {
-    updateLoading({ status: false });
-    console.log(response);
-  };
+  const callback = () => updateLoading({ status: false });
+  const errback = () => updateLoading({ status: false });
   const handleSubmit = async formData => {
     updateLoading({ status: true, text: 'Processing Scan...' });
     const form_data = jsonToFormData(formData);
