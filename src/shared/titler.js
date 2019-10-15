@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { callMeDanger } from '../utilities';
+import { callMeDanger } from 'utilities';
 
 const Titler = ({ title, value, linebreak, bold }) => {
   if (!value) return null;

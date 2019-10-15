@@ -1,4 +1,6 @@
-import fetcher from './fetcher';
 import requester from './requester';
+import afterSubmit from './afterSubmit';
 
-export { fetcher, requester };
+const API_URL = 'http://localhost:3000/';
+
+export { requester, API_URL, afterSubmit };

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Form, Label, Input as SUInput } from 'semantic-ui-react';
 
-import { underscorer, getTextFromChildren as getText } from '../utilities';
+import { underscorer, getTextFromChildren as getText } from 'utilities';
 
 const Input = props => {
   const {

@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { jsonToFormData } from 'utilities';
-import { useAfterSubmit as afterSubmit } from 'utilities/hooks';
-import { requester } from 'utilities/apiUtils';
+import { requester, afterSubmit } from 'utilities/apiUtils';
 
 import Input from 'shared/input';
 

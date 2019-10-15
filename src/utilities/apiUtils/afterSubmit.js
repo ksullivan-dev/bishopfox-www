@@ -1,4 +1,4 @@
-const useAfterSubmit = (response, cb, eb) => {
+const afterSubmit = (response, cb, eb) => {
   setTimeout(async () => {
     if (response instanceof Error) {
       eb(response);
@@ -10,4 +10,4 @@ const useAfterSubmit = (response, cb, eb) => {
   }, 400);
 };
 
-export default useAfterSubmit;
+export default afterSubmit;

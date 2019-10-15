@@ -4,8 +4,7 @@ import moment from 'moment';
 import { useParams } from 'react-router-dom';
 import { Button, Confirm } from 'semantic-ui-react';
 
-import { requester } from 'utilities/apiUtils';
-import { useAfterSubmit as afterSubmit } from 'utilities/hooks';
+import { requester, afterSubmit } from 'utilities/apiUtils';
 
 const DeleteScan = ({ scan }) => {
   const { id } = useParams();

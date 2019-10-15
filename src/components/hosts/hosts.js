@@ -11,7 +11,7 @@ import {
 
 import { capitalize } from 'utilities';
 
-import Truncate from 'shared/textFormatters/truncate';
+import Truncate from 'shared/truncate';
 import Titler from 'shared/titler';
 import Flex from 'shared/flex';
 
