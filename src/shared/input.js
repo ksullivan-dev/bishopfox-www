@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Form, Label, Input as SUInput } from 'semantic-ui-react';
 
-import { underscorer, getTextFromChildren as getText } from 'utilities';
+import { underscorer } from 'utilities';
 
 const Input = props => {
   const {
     label,
-    placeholder = label.props ? getText(label.props.children) : label,
-    name = underscorer(label.props ? getText(label.props.children) : label),
+    placeholder = label,
+    name = underscorer(label),
     onChange,
     inputLabel,
     labelPosition = 'left',
