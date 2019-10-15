@@ -2,7 +2,7 @@ import React from 'react';
 
 import { render, fireEvent } from '@testing-library/react';
 
-import mockFetchPromise from 'utilities/mockFetchPromise';
+import { mockFetchPromise } from 'utilities/apiUtils';
 import DeleteScan from 'components/scans/deleteScan';
 
 describe('Delete Scan tests', () => {
