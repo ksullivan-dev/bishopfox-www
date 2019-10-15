@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
-import { useParams } from 'react-router-dom';
 import { Button, Confirm } from 'semantic-ui-react';
 
 import { requester, afterSubmit } from 'utilities/apiUtils';
 
-const DeleteScan = ({ scan }) => {
-  const { id } = useParams();
+const DeleteScan = ({ scan = {} }) => {
+  const { id } = scan;
   const [open, setOpen] = useState(false);
   const deleteScan = async () => {
     const url = `http://localhost:3000/import/${id}`;
