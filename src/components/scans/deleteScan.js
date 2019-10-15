@@ -5,7 +5,7 @@ import { Button, Confirm } from 'semantic-ui-react';
 
 import { requester, afterSubmit } from 'utilities/apiUtils';
 
-const DeleteScan = ({ scan = {} }) => {
+const DeleteScan = ({ scan }) => {
   const { id } = scan;
   const [open, setOpen] = useState(false);
   const deleteScan = async () => {
