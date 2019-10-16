@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 import { Button, Confirm } from 'semantic-ui-react';
 
-import { requester, afterSubmit, API_URL } from 'utilities/apiUtils';
+import { requester, afterSubmit, API_SCANS } from 'utilities/apiUtils';
 
 const DeleteScan = ({ scan }) => {
   const { id } = scan;
   const [open, setOpen] = useState(false);
   const deleteScan = async () => {
-    const url = `${API_URL}/import/${id}`;
+    const url = `${API_SCANS}/${id}`;
     const response = await requester({ url, method: 'DELETE' });
     afterSubmit(response);
   };

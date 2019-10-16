@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { jsonToFormData } from 'utilities';
-import { requester, afterSubmit, API_URL } from 'utilities/apiUtils';
+import { requester, afterSubmit, API_SCANS } from 'utilities/apiUtils';
 
 import Input from 'shared/input';
 
@@ -12,7 +12,7 @@ const ImportScan = ({ updateLoading }) => {
   const handleSubmit = async formData => {
     updateLoading({ status: true, text: 'Processing Scan...' });
     const form_data = jsonToFormData(formData);
-    const url = `${API_URL}/import`;
+    const url = API_SCANS;
     const response = await requester({
       url,
       body: form_data,

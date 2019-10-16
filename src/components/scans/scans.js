@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Header } from 'semantic-ui-react';
 
-import { requester, API_URL } from 'utilities/apiUtils';
+import { requester, API_SCANS } from 'utilities/apiUtils';
 import Loader from 'shared/loading';
 
 import RecentScans from 'components/scans/recentScans';
@@ -16,7 +16,7 @@ const Scans = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const url = `${API_URL}/import`;
+      const url = API_SCANS;
       const result = await requester({ url, method: 'GET' });
       updateLoading({ status: false });
       updateScans(result.scans);

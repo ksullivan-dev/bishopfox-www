@@ -1,4 +1,4 @@
-import { afterSubmit, API_URL } from 'utilities/apiUtils';
+import { afterSubmit, API_SCANS } from 'utilities/apiUtils';
 
 describe('AfterSubmit tests', () => {
   test('if the response is an error, run the errback with the response', done => {
@@ -15,7 +15,7 @@ describe('AfterSubmit tests', () => {
 
   test('if the response is not an error and redirect is defined, redirect to correct url', done => {
     delete global.window.location;
-    const href = API_URL;
+    const href = API_SCANS;
     const redirect_url = `${href}/temp`;
     const res = { redirect: true, redirect_url };
 
