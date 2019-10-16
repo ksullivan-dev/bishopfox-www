@@ -18,12 +18,13 @@ const Scans = () => {
     const fetchData = async () => {
       const url = 'http://localhost:3000/import';
       const result = await requester({ url, method: 'GET' });
-      setTimeout(() => {
-        updateLoading({ status: false });
-        updateScans(result.scans);
-      }, 400);
+      updateLoading({ status: false });
+      updateScans(result.scans);
     };
-    fetchData();
+    const timer = setTimeout(() => fetchData(), 400);
+    return () => {
+      clearTimeout(timer);
+    };
   }, []);
 
   return (

@@ -16,7 +16,12 @@ const RecentScans = ({ scans = [] }) => {
   return (
     <Card.Group>
       {scans.map(scan => (
-        <Card onClick={onClick} data-scanid={scan.id} key={scan.id}>
+        <Card
+          onClick={onClick}
+          data-testid="scans"
+          data-scanid={scan.id}
+          key={scan.id}
+        >
           <Card.Content>
             <Card.Header
               content={moment(scan.start_time * 1000).format('MMM D, YYYY')}
