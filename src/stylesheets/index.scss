@@ -74,6 +74,7 @@ code {
     left: 50%;
     width: 100vw;
     height: 500px;
+    min-width: 400px;
     transform: translate(-50%, 0);
     background: $darkbkg;
     z-index: -1;
