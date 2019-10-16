@@ -23,7 +23,7 @@ const details = [
   { title: 'Scan End', name: 'endtime', formatter: formattedDate }
 ];
 
-const HostDetails = ({ host = {} }) => {
+const HostDetails = ({ host }) => {
   return (
     <>
       {details.map(({ title, name, formatter }) => {

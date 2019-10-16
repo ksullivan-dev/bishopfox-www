@@ -11,7 +11,7 @@ const details = [
   { title: 'State', name: 'state' }
 ];
 
-const Port = ({ port = {} }) => {
+const Port = ({ port }) => {
   return (
     <div className={`port port--${port.state}`}>
       {details.map(({ title, name }) => {

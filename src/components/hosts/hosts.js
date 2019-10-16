@@ -18,7 +18,7 @@ import Flex from 'shared/flex';
 import HostDetails from 'components/hosts/hostDetails';
 import Port from 'components/hosts/port';
 
-const Hosts = ({ hosts = [] }) => {
+const Hosts = ({ hosts }) => {
   const all = hosts.map(host => host.id);
   const [hostIds, updateHosts] = useState([]);
   const onClick = (e, obj) => {
@@ -61,6 +61,7 @@ const Hosts = ({ hosts = [] }) => {
                     active={active}
                     onClick={onClick}
                     data-hostid={host.id}
+                    data-testid="host-trigger"
                   >
                     <Truncate>
                       <Icon name="dropdown" />
@@ -80,7 +81,11 @@ const Hosts = ({ hosts = [] }) => {
                 {active && (
                   <Card.Description>
                     <Divider />
-                    <Header as="h4" content="Ports" />
+                    <Header
+                      as="h4"
+                      content="Ports"
+                      data-testid={`host-details${host.id}`}
+                    />
                     <Flex spacing="10" wrap>
                       {host.ports.map(port => (
                         <div flex="25" key={port.id} style={{ minWidth: 220 }}>
