@@ -19,23 +19,24 @@ const Scan = () => {
     const fetchData = async () => {
       const url = `http://localhost:3000/import/${id}`;
       const result = await requester({ url, method: 'GET' });
-      setTimeout(() => {
-        updateLoading(false);
-        updateScan(result);
-      }, 400);
+      updateLoading({ status: false });
+      updateScan(result);
     };
-    fetchData();
+    const timer = setTimeout(() => fetchData(), 400);
+    return () => {
+      clearTimeout(timer);
+    };
   }, [id]);
   return (
     <>
       <Header as="h2" content="Scan Results" className="light-header" />
       <Loader
-        loading={loading}
+        loading={loading.status}
         loadingProps={{ size: 'huge', content: 'Populating Results...' }}
       >
         {scan && (
           <>
-            <div className="header-section">
+            <div className="header-section" data-testid="single-scan">
               <Header
                 content={moment(scan.start_time * 1000).format('MMM D, YYYY')}
                 as="h3"
