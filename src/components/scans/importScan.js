@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Form } from 'semantic-ui-react';
 
 import { jsonToFormData } from 'utilities';
 import { requester, afterSubmit, API_SCANS } from 'utilities/apiUtils';
@@ -30,14 +31,16 @@ const ImportScan = ({ updateLoading }) => {
   };
 
   return (
-    <Input
-      inputType="file"
-      name="importScan"
-      label="Import Scan"
-      onChange={handleFile}
-      id="import-scan"
-      accept=".xml"
-    />
+    <Form>
+      <Input
+        inputType="file"
+        name="importScan"
+        label="Import Scan"
+        onChange={handleFile}
+        id="import-scan"
+        accept=".xml"
+      />
+    </Form>
   );
 };
 
