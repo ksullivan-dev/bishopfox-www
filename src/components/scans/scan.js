@@ -10,16 +10,22 @@ import { requester, API_SCANS } from 'utilities/apiUtils';
 
 import DeleteScan from 'components/scans/deleteScan';
 import Hosts from 'components/hosts/hosts';
+import NotFound from 'components/notFound';
 
 const Scan = () => {
   const { id } = useParams();
   const [loading, updateLoading] = useState(true);
   const [scan, updateScan] = useState();
+  const [loaded, updateLoaded] = useState(false);
   useEffect(() => {
     const fetchData = async () => {
       const url = `${API_SCANS}/${id}`;
       const result = await requester({ url, method: 'GET' });
       updateLoading({ status: false });
+      updateLoaded(true);
+      if (result instanceof Error) {
+        return;
+      }
       updateScan(result);
     };
     const timer = setTimeout(() => fetchData(), 400);
@@ -29,11 +35,16 @@ const Scan = () => {
   }, [id]);
   return (
     <>
-      <Header as="h2" content="Scan Results" className="light-header" />
+      {!loaded ||
+        (scan && (
+          <Header as="h2" content="Scan Results" className="light-header" />
+        ))}
+
       <Loader
         loading={loading.status}
         loadingProps={{ size: 'huge', content: 'Populating Results...' }}
       >
+        {loaded && !scan && <NotFound />}
         {scan && (
           <>
             <div className="header-section" data-testid="single-scan">
