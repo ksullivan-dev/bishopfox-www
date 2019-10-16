@@ -6,12 +6,10 @@ import { Card } from 'semantic-ui-react';
 
 import Titler from 'shared/titler';
 
-const RecentScans = ({ scans = [] }) => {
+const RecentScans = ({ scans }) => {
   const history = useHistory();
 
-  const onClick = (e, obj) => {
-    history.push(`/scans/${obj['data-scanid']}`);
-  };
+  const onClick = (e, obj) => history.push(`/scans/${obj['data-scanid']}`);
 
   return (
     <Card.Group>
