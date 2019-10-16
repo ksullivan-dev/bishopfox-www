@@ -2,7 +2,7 @@ import React from 'react';
 
 import { render, fireEvent } from '@testing-library/react';
 
-import { mockFetchPromise } from 'utilities/apiUtils';
+import { mockFetchPromise, API_URL } from 'utilities/apiUtils';
 import ImportScan from 'components/scans/importScan';
 
 describe('Import Scan tests', () => {
@@ -33,7 +33,7 @@ describe('Import Scan tests', () => {
     const value = await global.fetch.mock.results[0].value;
     const response = await value.json();
     expect(global.fetch).toHaveBeenCalledTimes(1);
-    expect(global.fetch.mock.calls[0][0]).toBe('http://localhost:3000/import');
+    expect(global.fetch.mock.calls[0][0]).toBe(`${API_URL}/import`);
     expect(req.headers['Content-Type']).toBeFalsy();
     expect(response.redirect).toBe(true);
     expect(response.redirect_url).toBe('www.redirecturl.com');

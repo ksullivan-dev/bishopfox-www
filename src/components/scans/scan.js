@@ -6,7 +6,7 @@ import { Header } from 'semantic-ui-react';
 import Titler from 'shared/titler';
 import Loader from 'shared/loading';
 
-import { requester } from 'utilities/apiUtils';
+import { requester, API_URL } from 'utilities/apiUtils';
 
 import DeleteScan from 'components/scans/deleteScan';
 import Hosts from 'components/hosts/hosts';
@@ -17,7 +17,7 @@ const Scan = () => {
   const [scan, updateScan] = useState();
   useEffect(() => {
     const fetchData = async () => {
-      const url = `http://localhost:3000/import/${id}`;
+      const url = `${API_URL}/import/${id}`;
       const result = await requester({ url, method: 'GET' });
       updateLoading({ status: false });
       updateScan(result);
