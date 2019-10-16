@@ -22,7 +22,7 @@ const NotFound = () => {
   const iconStyles = { color: styles.darkgray };
   return (
     <>
-      <div className="header-section" data-testid="single-scan">
+      <div className="header-section">
         <Header content="Page Not Found" as="h2" />
       </div>
       <Loader
